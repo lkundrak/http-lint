@@ -43,7 +43,7 @@ RES
 		[19, 6, 2]], 'HTTP::Lint::Error'),
 	bless (['Missing media type',
 		[7, 2, 1]], 'HTTP::Lint::Warning'),
-	bless (['Retry-After header missing for a non-commital response',
+	bless (['Retry-After header missing for a 503 response',
 		[10, 5, 4]], 'HTTP::Lint::Warning'),
 	bless (['GET request with non-empty body',
 		[]], 'HTTP::Lint::Error'),

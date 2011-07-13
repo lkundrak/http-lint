@@ -158,9 +158,11 @@ sub response_lint
 	push @return, error 'Proxy-Authenticate header missing for a 407 response' => 10,4,8
 		if $response->code == 407
 		and not defined $response->header ('Proxy-Authenticate');
-	push @return, warning 'Retry-After header missing for a non-commital response' => 10,5,4
-		if $response->code =~ /^(503|202)$/
+	push @return, warning 'Retry-After header missing for a 503 response' => 10,5,4
+		if $response->code == 503
 		and not defined $response->header ('Retry-After');
+	push @return, warning 'Undefined Refresh header is present'
+		if defined $response->header ('Refresh');
 	push @return, error '405 without allowed methods specified' => 10,4,6
 		if $response->code == 405
 		and not defined $response->header ('Allow');
