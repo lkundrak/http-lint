@@ -194,7 +194,7 @@ sub transaction_lint
 		and ($response->protocol || 'HTTP/1.0') eq 'HTTP/1.1';
 	push @return, warning 'Action with side effects conducted for a '.$request->method.' request' => 13,9
 		if $request->method =~ /^(GET|HEAD|TRACE|OPTIONS)$/
-		and $response->code =~ /^20[12]$/;
+		and $response->code == 201;
 	push @return, error 'HEAD response with non-empty body' => 4,3
 		if $request->method eq 'HEAD'
 		and $response->content;
