@@ -228,7 +228,7 @@ sub pretty
 		or die 'Not a HTTP::Lint::Message';
 	return (ref $self eq 'HTTP::Lint::Error' ? 'ERROR: ' : 'WARNING: ').
 		$self->[0].
-		(@{$self->[1]} ? ' [RFC2616: '.join ('.', @{$self->[1]}).']' : 'FFF');
+		(@{$self->[1]} ? ' [RFC2616: '.join ('.', @{$self->[1]}).']': '');
 }
 
 =back
